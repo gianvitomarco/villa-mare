@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Villa al Mare – Villa Pilone 1, Ostuni</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+<!-- Leaflet CSS -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-o9N1jlfF8dEwRMTnPcihQq27NysB3K8dHkG9l/JXCi0="
+  crossorigin=""
+/>
+<!-- Leaflet JS -->
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-o7YfS+q5CRtVsqKjYO7xGJo+YRGnUEDnJpyyEdMtb3E="
+  crossorigin=""
+></script>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>Villa Pilone 1, Ostuni</h1>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+	<section class="description">
+  <h2>Benvenuti</h2>
+  <p>
+    <p>La villa situata in un villaggio privato, Pilone 1(Ostuni)è dotata di giardino, patio, 2 camere da letto, salotto con letto singolo bagno e cucina, comodissima doccia esterna. Dotata di aria condizionata.
+<p>La spiaggia(Lido Stella)collegata al villaggio è
+raggiungibile in 2 minuti a piedi ed è dotata di tutti i servizi (ristorante, bar,..). Il villaggio è tranquillo ma posizionato nei pressi di locali dove poter passare pomeriggi e serate divertenti (Lullabay, Nomade,..). Dista 8km da Ostuni.</p>
+<p>Lo spazio
+ideale per chi ama fare splendide colazioni e pasti all'aperto sotto il pergolato del patio.</p>
+La casa dispone di una comoda doccia esterna sul patio posteriore;
+il giardino è arredato con comode sdraio e tavolini per passare momenti di relax in tranquillità.</p></p>
+</section>   
+    </section>
+
+    <section class="gallery">
+      <h2>La Galleria</h2>
+      <div class="grid">
+        <img src="images/esterno4.jpeg" alt="Giardino">
+		<img src="images/esterno1.jpg" alt="Giardino">
+		<img src="images/patioPosteriore.avif" alt="Patio posteriore">
+		<img src="images/cucina.avif" alt="Cucina">
+        <img src="images/camera.jpeg" alt="Camere">
+		<img src="images/bagno.jpeg" alt="Bagno">
+        <img src="images/lidoStella.jpg" alt="Mare">
+        <!-- aggiungi o rimuovi immagini -->
+      </div>
+    </section>
+	
+	<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" src="" alt="Anteprima ingrandita">
+</div>
+
+    <section class="services">
+      <h2>Servizi</h2>
+      <ul>
+        <li>Aria condizionata</li>
+		<li>Giardino privato</li>
+		<li>Cucina</li>
+        <li>Bagno con Bidet</li>
+		<li>Doccia all'aperto</li>
+		<li>Essenziali:asciugamani, lenzuola, sapone e carta igienica</li>
+        <li>Parcheggio privato</li>
+        <li>3 camere da letto</li>
+        <li>2 bagni</li>
+        <li>Accesso diretto alla spiaggia</li>
+        <!-- personalizza con i tuoi servizi -->
+      </ul>
+    </section>
+
+    <section class="map">
+      <h2>Dove siamo</h2>
+      <div id="map"></div>
+    </section>
+
+    <section class="booking">
+      <a href="https://www.airbnb.it/rooms/951206707723244182?guests=1&adults=1&s=67&unique_share_id=5b5bfcb9-50ee-4095-b90b-be795735cb89" class="btn" target="_blank">Prenota su Airbnb</a>
+    </section>
+	<section class="contact">
+  <h2>Contatti</h2>
+
+  <div class="contact-info">
+    <p><strong>📍 Indirizzo:</strong> Pilone 1, Ostuni (BR)</p>
+    <p><strong>📞 Telefono:</strong> <a href="tel:+393332943108">+39 333 2943108</a></p>
+  </div>
+
+  <form class="contact-form" action="mailto:info@villadelmare.it" method="POST" enctype="text/plain">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="messaggio">Messaggio</label>
+    <textarea id="messaggio" name="messaggio" rows="5" required></textarea>
+
+    <button type="submit" class="btn">Invia</button>
+  </form>
+</section>
+
+  </main>
+
+  <footer>
+    &copy; 2025 [Villa Pilone 1, Ostuni]. Tutti i diritti riservati.
+  </footer>
+
+</body>
+</html>
