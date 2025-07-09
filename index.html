@@ -1,116 +1,168 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Villa al Mare – Villa Pilone 1, Ostuni</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Villa del Mare</title>
 
-<!-- Leaflet CSS -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
-<!-- Leaflet JS -->
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2f9fb;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      color: #0077b6;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 30px;
+      text-align: justify;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact {
+      margin-top: 40px;
+    }
+
+    .contact h2 {
+      font-size: 1.5rem;
+    }
+
+    .contact p, .contact a {
+      font-size: 1.1rem;
+      margin: 5px 0;
+      color: #0077b6;
+      text-decoration: none;
+    }
+
+    .button {
+      background-color: #00b4d8;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    .button:hover {
+      background-color: #0096c7;
+    }
+
+    @media (max-width: 600px) {
+      h1, h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Villa del Mare</h1>
 
-  <header class="hero">
-    <h1>Villa Pilone 1, Ostuni</h1>
-  </header>
-
-  <main class="container">
-    <section class="intro">
-	<p class="description">
-  <h2>Benvenuti</h2>
-  <p>
-    <p>La villa situata in un villaggio privato, Pilone 1(Ostuni) è dotata di giardino, patio, 2 camere da letto, salotto con letto singolo bagno e cucina, comodissima doccia esterna. Dotata di aria condizionata.
+    <p class="description">
+      <p>La villa situata in un villaggio privato, Pilone 1(Ostuni)è dotata di giardino, patio, 2 camere da letto, salotto con letto singolo bagno e cucina, comodissima doccia esterna. Dotata di aria condizionata.
 <p>La spiaggia(Lido Stella)collegata al villaggio è
 raggiungibile in 2 minuti a piedi ed è dotata di tutti i servizi (ristorante, bar,..). Il villaggio è tranquillo ma posizionato nei pressi di locali dove poter passare pomeriggi e serate divertenti (Lullabay, Nomade,..). Dista 8km da Ostuni.</p>
 <p>Lo spazio
 ideale per chi ama fare splendide colazioni e pasti all'aperto sotto il pergolato del patio.</p>
 La casa dispone di una comoda doccia esterna sul patio posteriore;
-il giardino è arredato con comode sdraio e tavolini per passare momenti di relax in tranquillità.</p></p>
-</p>   
-    </section>
+il giardino è arredato con comode sdraio e tavolini per passare momenti di relax in tranquillità.</p>   </p>
 
     <div class="gallery">
-      <h2>La Galleria</h2>
-      <div class="grid">
-        <img src="images/esterno4.jpeg" alt="Giardino">
+      <img src="images/esterno4.jpeg" alt="Giardino">
 		<img src="images/esterno1.jpg" alt="Giardino">
 		<img src="images/patioPosteriore.avif" alt="Patio posteriore">
 		<img src="images/cucina.avif" alt="Cucina">
         <img src="images/camera.jpeg" alt="Camere">
 		<img src="images/bagno.jpeg" alt="Bagno">
         <img src="images/lidoStella.jpg" alt="Mare">
-        <!-- aggiungi o rimuovi immagini -->
-      </div>
-    </div>
-	
-	<div id="lightbox" class="lightbox">
-  <span class="close">&times;</span>
-  <img class="lightbox-img" src="" alt="Anteprima ingrandita">
-</div>
-
-    <section class="services">
-      <h2>Servizi</h2>
-      <ul>
-        <li>Aria condizionata</li>
-		<li>Giardino privato</li>
-		<li>Cucina</li>
-        <li>Bagno con Bidet</li>
-		<li>Doccia all'aperto</li>
-		<li>Essenziali:asciugamani, lenzuola, sapone e carta igienica</li>
-        <li>Parcheggio privato</li>
-        <li>2 camere da letto</li>
-        <li>1 bagni</li>
-        <li>Spiaggia raggiungibile a piedi in meno di 5 minuti</li>
-        <!-- personalizza con i tuoi servizi -->
-      </ul>
-    </section>
-
-    <div class="map">
-      <h2>Dove siamo</h2>
-      <div id="map"></div>
     </div>
 
-    <section class="booking">
-      <a href="https://www.airbnb.it/rooms/951206707723244182?guests=1&adults=1&s=67&unique_share_id=5b5bfcb9-50ee-4095-b90b-be795735cb89" class="btn" target="_blank">Prenota su Airbnb</a>
-    </section>
-	<section class="contact">
-  <h2>Contatti</h2>
+    <h2>Dove si trova la villa</h2>
+    <div id="map"></div>
 
-  <div class="contact-info">
-    <p><strong>📍 Indirizzo:</strong> Pilone 1, Ostuni (BR)</p>
-    <p><strong>📞 Telefono:</strong> <a href="tel:+393332943108">+39 333 2943108</a></p>
+    <div class="contact">
+      <h2>Contatti</h2>
+      <p>Email: <a href="mailto:info@villadelmare.it">gianvitomarco@gmail.com</a></p>
+      <p>Telefono: <a href="tel:+393332943108">+393332943108</a></p>
+      <a class="button" href="https://wa.me/+393332943108" target="_blank">Contattaci su WhatsApp</a>
+    </div>
   </div>
 
-  <form class="contact-form" action="mailto:gianvitomarco@gmail.com" method="POST" enctype="text/plain">
-    <label for="nome">Nome</label>
-    <input type="text" id="nome" name="nome" required>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const map = L.map('map').setView([40.80085847151684, 17.54167370961622], 13);
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
 
-    <label for="messaggio">Messaggio</label>
-    <textarea id="messaggio" name="messaggio" rows="5" required></textarea>
-
-    <button type="submit" class="btn">Invia</button>
-  </form>
-</section>
-
-  </main>
-
-  <footer>
-    &copy; 2025 [Villa Pilone 1, Ostuni]. Tutti i diritti riservati.
-  </footer>
-
+      L.marker([40.80085847151684, 17.54167370961622])
+        .addTo(map)
+        .bindPopup('Villa del Mare')
+        .openPopup();
+    });
+  </script>
 </body>
 </html>
