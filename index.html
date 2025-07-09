@@ -5,68 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Villa del Mare</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;500&display=swap" rel="stylesheet">
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <style>
+    :root {
+      --main-bg: #f9f9f7;
+      --accent: #0077b6;
+      --soft-accent: #caf0f8;
+      --text-dark: #2a2a2a;
+      --text-light: #666;
+      --card-bg: white;
+    }
+
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f2f9fb;
-      color: #333;
+      background-color: var(--main-bg);
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
       line-height: 1.6;
-      padding: 20px;
+      padding: 30px;
     }
 
     .container {
       max-width: 1000px;
       margin: auto;
-      padding: 20px;
-      background: #ffffff;
+      background-color: var(--card-bg);
+      padding: 40px;
       border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     }
 
-    h1, h2 {
-      color: #0077b6;
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--accent);
+      text-align: center;
       margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      color: var(--accent);
+      font-weight: 500;
+      margin: 40px 0 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 6px;
     }
 
     .description {
       font-size: 1.1rem;
-      color: #444;
-      margin-bottom: 30px;
+      color: var(--text-light);
       text-align: justify;
+      margin-bottom: 40px;
     }
 
+    /* Galleria orizzontale */
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 15px;
-      margin: 30px 0;
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 10px;
+      scroll-snap-type: x mandatory;
     }
 
     .gallery img {
-      width: 100%;
+      width: 320px;
       height: 220px;
       object-fit: cover;
       border-radius: 12px;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
       cursor: pointer;
     }
 
     .gallery img:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
+    /* Mappa */
     #map {
       height: 400px;
       width: 100%;
@@ -75,31 +102,28 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
+    /* Contatti */
     .contact {
-      margin-top: 40px;
-    }
-
-    .contact h2 {
-      font-size: 1.5rem;
+      margin-top: 50px;
     }
 
     .contact p, .contact a {
       font-size: 1.1rem;
-      margin: 5px 0;
-      color: #0077b6;
+      color: var(--accent);
       text-decoration: none;
+      margin-bottom: 8px;
     }
 
     .button {
-      background-color: #00b4d8;
+      background-color: var(--accent);
       color: white;
       padding: 12px 24px;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.3s ease;
-      margin-top: 20px;
+      margin-top: 15px;
       display: inline-block;
     }
 
@@ -108,8 +132,8 @@
     }
 
     @media (max-width: 600px) {
-      h1, h2 {
-        font-size: 1.4rem;
+      .gallery img {
+        width: 80vw;
       }
     }
   </style>
@@ -119,14 +143,16 @@
     <h1>Villa del Mare</h1>
 
     <p class="description">
-      <p>La villa situata in un villaggio privato, Pilone 1(Ostuni)è dotata di giardino, patio, 2 camere da letto, salotto con letto singolo bagno e cucina, comodissima doccia esterna. Dotata di aria condizionata.
+		<p>La villa situata in un villaggio privato, Pilone 1(Ostuni)è dotata di giardino, patio, 2 camere da letto, salotto con letto singolo bagno e cucina, comodissima doccia esterna. Dotata di aria condizionata.
 <p>La spiaggia(Lido Stella)collegata al villaggio è
 raggiungibile in 2 minuti a piedi ed è dotata di tutti i servizi (ristorante, bar,..). Il villaggio è tranquillo ma posizionato nei pressi di locali dove poter passare pomeriggi e serate divertenti (Lullabay, Nomade,..). Dista 8km da Ostuni.</p>
 <p>Lo spazio
 ideale per chi ama fare splendide colazioni e pasti all'aperto sotto il pergolato del patio.</p>
 La casa dispone di una comoda doccia esterna sul patio posteriore;
-il giardino è arredato con comode sdraio e tavolini per passare momenti di relax in tranquillità.</p>   </p>
+il giardino è arredato con comode sdraio e tavolini per passare momenti di relax in tranquillità.</p>
+	  </p>
 
+    <h2>Galleria fotografica</h2>
     <div class="gallery">
       <img src="images/esterno4.jpeg" alt="Giardino">
 		<img src="images/esterno1.jpg" alt="Giardino">
@@ -137,14 +163,14 @@ il giardino è arredato con comode sdraio e tavolini per passare momenti di rela
         <img src="images/lidoStella.jpg" alt="Mare">
     </div>
 
-    <h2>Dove si trova la villa</h2>
+    <h2>Dove si trova</h2>
     <div id="map"></div>
 
     <div class="contact">
       <h2>Contatti</h2>
-      <p>Email: <a href="mailto:info@villadelmare.it">gianvitomarco@gmail.com</a></p>
-      <p>Telefono: <a href="tel:+393332943108">+393332943108</a></p>
-      <a class="button" href="https://wa.me/+393332943108" target="_blank">Contattaci su WhatsApp</a>
+      <p>Email: <a href="mailto:gianvitomarco@gmail.com">gianvitomarco@gmail.com</a></p>
+      <p>Telefono: <a href="tel:+393332943108">+39 333 2943108</a></p>
+      <a class="button" href="https://wa.me/393332943108" target="_blank">Contattaci su WhatsApp</a>
     </div>
   </div>
 
@@ -152,13 +178,13 @@ il giardino è arredato con comode sdraio e tavolini per passare momenti di rela
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const map = L.map('map').setView([40.80085847151684, 17.54167370961622], 13);
+      const map = L.map('map').setView([40.8009, 17.5416], 13);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
       }).addTo(map);
 
-      L.marker([40.80085847151684, 17.54167370961622])
+      L.marker([40.8009, 17.5416])
         .addTo(map)
         .bindPopup('Villa del Mare')
         .openPopup();
